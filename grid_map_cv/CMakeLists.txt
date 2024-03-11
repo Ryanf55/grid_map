@@ -43,20 +43,16 @@ add_library(${PROJECT_NAME} SHARED
   src/InpaintFilter.cpp
 )
 
+message(FATAL_ERROR "${filters_LIBRARIES}")
+
 target_link_libraries(${PROJECT_NAME} PUBLIC
   cv_bridge::cv_bridge
   grid_map_core::grid_map_core
   opencv_photo
   pluginlib::pluginlib
   rclcpp::rclcpp
+  filters::filter_base
   ${sensor_msgs_TARGETS}
-)
-
-# Filters does not expose targets (yet)
-# https://github.com/ros/filters/pull/70
-target_include_directories(${PROJECT_NAME}
-  PUBLIC
-    ${filters_INCLUDE_DIRS}
 )
 
 #############
