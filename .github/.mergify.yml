@@ -8,6 +8,9 @@ pull_request_rules:
       backport:
         branches:
           - jazzy
+        labels:
+          - ros2
+        title: "{{ title }} (backport #{{ number }}) to {{ base }}"
 
   - name: backport to iron at reviewers discretion
     conditions:
@@ -17,6 +20,8 @@ pull_request_rules:
       backport:
         branches:
           - iron
+        labels:
+          - ros2
 
   - name: backport to humble at reviewers discretion
     conditions:
@@ -26,6 +31,8 @@ pull_request_rules:
       backport:
         branches:
           - humble
+        labels:
+          - ros2
 
   - name: delete head branch after merge
     conditions:
