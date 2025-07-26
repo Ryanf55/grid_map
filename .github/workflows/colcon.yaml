@@ -35,7 +35,7 @@ jobs:
         apt update
         rosdep update
         source /opt/ros/${{matrix.config.rosdistro}}/setup.bash
-        rosdep install --from-paths src --ignore-src -y --skip-keys "slam_toolbox"
+        rosdep install --from-paths src --ignore-src -y --skip-keys "slam_toolbox octomap_server"
       shell: bash
     - name: Colcon Build (Release)
       run: |
